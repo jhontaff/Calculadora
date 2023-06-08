@@ -8,7 +8,6 @@ pipeline{
             steps {
                 echo "Actualizando datos repositorio"
                 sh 'docker build -t calculadora .'
-                git branch: 'main', credentialsId: 'jenkins-token', url: 'https://github.com/jhontaff/Calculadora.git'
                 }
 
         }
