@@ -7,8 +7,8 @@ pipeline{
         stage('Build') { /*extrae los cambios realizados en el repositorio */
             steps {
                 echo "Actualizando datos repositorio"
-                git branch: 'dev', credentialsId: 'jenkins-token', url: 'https://github.com/jhontaff/Calculadora.git'
-                sh 'docker build -t calculadora'
+                sh 'docker build -t calculadora .'
+                git branch: 'main', credentialsId: 'jenkins-token', url: 'https://github.com/jhontaff/Calculadora.git'
                 }
 
         }
