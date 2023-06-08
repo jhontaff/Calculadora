@@ -1,13 +1,16 @@
 FROM node:lts
-WORKDIR /
-COPY calculadora.html .
-COPY calculadora.js .
-COPY calculadora.css .
 
-RUN npm install -g http-server
+COPY calculadora.js /app/
+COPY calculadora.html /app/
+COPY calculadora.css /app/
+COPY Jenkinsfile /app/
 
-EXPOSE 2020
-CMD ["http-server", "-p", "2020"]
+WORKDIR /app
+
+RUN npm install
+
+EXPOSE 80
+CMD ["node", "calculadora.js"]
 
 
 

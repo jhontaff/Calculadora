@@ -19,7 +19,7 @@ pipeline{
         stage('Despliegue'){
             steps{
                 echo "Desplegando..."
-                sh 'docker run -d -p 2020:80 calculadora'
+                sh 'docker run -d -p 8080:80 calculadora'
             }
         }
     }
