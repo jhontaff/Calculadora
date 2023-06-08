@@ -1,6 +1,8 @@
 pipeline{
     agent any
-
+    triggers {
+        pollSCM '30*****'
+    }
     stages {
         stage('Desarrollo') { /*extrae los cambios realizados en el repositorio */
             steps {
