@@ -1,6 +1,5 @@
 pipeline{
-    agent docker:24.0.2
-
+    agent any
     triggers {
         pollSCM '*/5 * * * *'
     }
