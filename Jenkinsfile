@@ -4,12 +4,12 @@ pipeline{
         pollSCM '*/5 * * * *'
     }
     stages {
-        stage('Build') { /*extrae los cambios realizados en el repositorio */
+        stage('Build') {
             steps {
                 echo "Actualizando datos repositorio"
-                sh 'docker build -t calculadora .'
-                }
-
+                script{
+                    sh 'docker build -t calculadora .'
+                }}
         }
         stage('QA'){
             steps{
