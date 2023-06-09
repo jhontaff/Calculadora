@@ -1,10 +1,15 @@
 pipeline{
-    agent any
+    agent {
+        docker {
+            image 'docker:24.0.2'
+            label 'jenkins-docker'
+        }
+    }
     triggers {
         pollSCM '*/5 * * * *'
     }
     stages {
-        stage('Build') { /*extrae los cambios realizados en el repositorio */
+        stage('Build') {
             steps {
                 echo "Actualizando datos repositorio"
                 sh 'docker build -t calculadora .'
@@ -19,7 +24,7 @@ pipeline{
         stage('Despliegue'){
             steps{
                 echo "Desplegando..."
-                sh 'docker run -d -p 8080:80 calculadora'
+                sh 'docker run -d -p 2020:80 --name calculadora calculadora'
             }
         }
     }
