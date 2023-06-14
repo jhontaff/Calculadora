@@ -7,9 +7,8 @@ pipeline{
         stage('Build') {
             steps {
                 echo "Actualizando datos repositorio"
-                script{
-                    sh 'docker build -t calculadora .'
-                }}
+                sh "docker build -t calculadora ."
+                }
         }
         stage('QA'){
             steps{
@@ -19,7 +18,7 @@ pipeline{
         stage('Despliegue'){
             steps{
                 echo "Desplegando..."
-                sh 'docker run -d -p 8090 --name calculadora calculadora'
+                sh "docker run -d -p 8090 --name calculadora calculadora"
             }
         }
     }
