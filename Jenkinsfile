@@ -4,10 +4,10 @@ pipeline{
         pollSCM '*/5 * * * *'
     }
     stages {
-        stage('Build') {
+        stage('Desarrollo') {
             steps {
                 echo "Actualizando datos repositorio"
-                sh "docker build -t calculadora ."
+                bat "docker build -t calculadora ."
                 }
         }
         stage('QA'){
@@ -18,7 +18,7 @@ pipeline{
         stage('Despliegue'){
             steps{
                 echo "Desplegando..."
-                sh "docker run -d -p 8090 --name calculadora calculadora"
+                bat "docker run -d -p 8090 --name calculadora calculadora"
             }
         }
     }
