@@ -18,7 +18,7 @@ pipeline{
         stage('Despliegue'){
             steps{
                 echo "Desplegando..."
-                bat "docker run -d -p 8090 --name calculadora calculadora"
+                bat "docker run -d -p 80:80 --name calculadora calculadora"
             }
         }
     }
