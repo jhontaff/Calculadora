@@ -10,7 +10,7 @@ class test():
         chrome_options.add_argument("--headless")
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=chrome_options)
-        driver.get("http://localhost:20/")
+        driver.get("http://localhost/")
         path1 = "//div[normalize-space()='1']"  
         path2 = "//div[normalize-space()='2']"  
         path3 = "//div[normalize-space()='3']"  

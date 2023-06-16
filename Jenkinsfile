@@ -42,7 +42,7 @@ pipeline{
                 echo "Generando imagen"
                 bat "docker build -t calculadora ."
                 echo "Desplegando..."
-                bat "docker run -d -p 80:80 --name calculadora calculadora"
+                bat "docker run -d -p 90:80 --name calculadora calculadora"
             }
         }
     }
